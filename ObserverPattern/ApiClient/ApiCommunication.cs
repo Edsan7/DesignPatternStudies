@@ -14,6 +14,7 @@ namespace Observer.ApiClient
         {
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new System.Uri(baseUrl);
+            _httpClient.Timeout = TimeSpan.FromSeconds(5);
         }
 
         public async Task<T> SendGet<T>(string endPoint, Dictionary<string, string> queryParams)
